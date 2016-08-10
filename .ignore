@@ -1,0 +1,4 @@
+node_modules
+node-bgsub/node_modules
+node-bgsub/build
+test
