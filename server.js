@@ -16,6 +16,6 @@ app.use(function(error, request, response, next) {
   next();
 });
 
-var server = app.listen(8080, function() {
+var server = app.listen(4000, function() {
 	console.log('cut server started. Listening on port 8080');
 });

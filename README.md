@@ -39,5 +39,24 @@ Once the foreground mask was extracted, the boundaries/curves were smoothened by
 13.    **node-bgsub/package.json:** Package declaration including NodeJS dependencies which in our case is just *nan*
 
 ##How to Build & Test
-*	
+Test environment I used is Ubuntu 14.04 LTS with OpenCV 3.0.0 and NodeJS v0.12.7 installed. However, any OpenCV version 2.4.8+ would do.
+
+###Installation
+You will need to build and install the node module first and then install API dependencies and then start the server
+```sh
+cd node-bgsub 
+npm install
+cd ..
+npm install
+node server.js
+```
+
+###Test
+Once the server has started, you can test the ```js /cut``` endpoint either with browser based API test tool e.g. Postman for Chrome or through good ol' ```sh curl```.
+
+```sh
+curl ­v ­XPOST ­H 'Content­Type: application/json' ­d '{ "num_threads": 8 }' http://localhost:4000/cut
+```
+
+
 
