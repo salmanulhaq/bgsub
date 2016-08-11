@@ -24,19 +24,19 @@ At first I considered using OpenCV's BackgroundSubtractor which I had previously
 Once the foreground mask was extracted, the boundaries/curves were smoothened by dilation. You will find more in the in-line comments in code.
 
 ###Files/Folders
-**routes:** This contains the REST API request handler
-**routes/cut-handler.js:** All requests to ```js /cut``` get routed to this handler which then extracts query params and calls the native node module's ```c++ subtract()``` function and returns with the final JSON result sent back in the response.
-**package.json:** Package definition alongwith node module dependencies list.
-**server.js:** This is where ExpressJS app (REST server) is initialized with port definition and endpoint (routes) declaration
-**node-bgsub:** Native node module which does the main work
-**node-bgsub/src: ** All the headers and source files
-**node-bgsub/src/init.cc:** Defines the entry point function ```c++ Subtract()```
-**node-bgsub/src/internal.h/cc:** Defines the error struct
-**node-bgsub/src/bgsub.h/cc:** Defines the Async worker class which invokes a new async worker (NodeJS terminology) for each call to ```js subtract()``` from within the API
-**node-bgsub/src/subtract.h/cc:** The actual code which does background subtraction. It takes in input image path and writes the 4-channel PNG output image into the output path specified.
-**node-bgsub/bgsub.pc:** Package configuration specifying OpenCV lib and include paths
-**node-bgsub/binding.gyp:** Defines build including source files to compile and pkg-config to use with it
-**node-bgsub/package.json:** Package declaration including NodeJS dependencies which in our case is just *nan*
+1.    **routes:** This contains the REST API request handler
+2.    **routes/cut-handler.js:** All requests to ```js /cut``` get routed to this handler which then extracts query params and calls the native node module's ```c++ subtract()``` function and returns with the final JSON result sent back in the response.
+3.    **package.json:** Package definition alongwith node module dependencies list.
+4.    **server.js:** This is where ExpressJS app (REST server) is initialized with port definition and endpoint (routes) declaration
+5.    **node-bgsub:** Native node module which does the main work
+6.    **node-bgsub/src: ** All the headers and source files
+7.    **node-bgsub/src/init.cc:** Defines the entry point function ```c++ Subtract()```
+8.    **node-bgsub/src/internal.h/cc:** Defines the error struct
+9.    **node-bgsub/src/bgsub.h/cc:** Defines the Async worker class which invokes a new async worker (NodeJS terminology) for each call to ```js subtract()``` from within the API
+10.    **node-bgsub/src/subtract.h/cc:** The actual code which does background subtraction. It takes in input image path and writes the 4-channel PNG output image into the output path specified.
+11.    **node-bgsub/bgsub.pc:** Package configuration specifying OpenCV lib and include paths
+12.    **node-bgsub/binding.gyp:** Defines build including source files to compile and pkg-config to use with it
+13.    **node-bgsub/package.json:** Package declaration including NodeJS dependencies which in our case is just *nan*
 
 ##How to Build & Test
 *	
